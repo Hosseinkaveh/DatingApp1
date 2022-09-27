@@ -29,10 +29,10 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
 
-                string con = _config.GetConnectionString("DefaultConnection");
             services.AddDbContext<DataContext>(option =>{
                 option.UseSqlite(_config.GetConnectionString("DefaultConnection"));
             });
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -53,6 +53,11 @@ namespace API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(x =>x
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .WithOrigins("http://localhost:4200"));
 
             app.UseAuthorization();
 
