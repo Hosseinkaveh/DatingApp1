@@ -13,6 +13,6 @@ namespace Api.Data
         {
 
         }
-        public DbSet<AppUser> AppUsers { get; set; }
+        public DbSet<AppUser> Users { get; set; }
     }
 }
