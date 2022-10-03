@@ -1,3 +1,83 @@
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <form #loginForm="ngForm" (ngSubmit)="Login()" autocomplete="off" class="login100-form validate-form">
+                <span class="login100-form-title p-b-26">
+                    Login From
+                </span>
+                <span class="login100-form-title p-b-48">
+                    <img src="../../assets/images/favicon.ico" class="zmdi zmdi-font"/>
+                </span>
+
+                <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+                    <input 
+                    
+                    [(ngModel)]="model.username"
+                    class="input100 has-val"
+                     type="text" 
+                     name="username"
+                     #name="ngModel"
+                    >
+                    <span class="focus-input100" data-placeholder="Email"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Enter password">
+                    <span class="btn-show-pass" >
+                        <i class="zmdi zmdi-eye"></i>
+                    </span>
+                    <input 
+                    [(ngModel)]="model.password"
+                    class="input100 has-val" 
+                    type="password"
+                     name="password">
+                    <span class="focus-input100" data-placeholder="Password"></span>
+                </div>
+
+                <div class="container-login100-form-btn">
+                    <div class="wrap-login100-form-btn">
+                        <div class="login100-form-bgbtn"></div>
+                        <button class=" login100-form-btn" type="submit">
+                            Login
+                        </button>
+                    </div>
+                </div>
+
+                <div class="text-center p-t-115">
+                    <span class="txt1">
+                        Don’t have an account?
+                    </span>
+
+                    <a class="txt2" role="button" (click)="Register()">
+                        Sign Up
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
 <div class="container h-100">
     <div class="row h-100" *ngIf="(accountService.currentUser$ | async) === null">
         <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
@@ -47,7 +127,7 @@
                                 <div class="text-center mt-3">
                                     <button type="submit" class="btn btn-lg btn-primary">Sign in</button>
                                    <!-- <a type="submit" class="btn btn-lg btn-primary">Sign in</a> -->
-                                    <!-- <button type="submit" class="btn btn-lg btn-primary">Sign in</button> -->
+                                     <!-- <button type="submit" (click)="Register()" class="btn btn-lg btn-default">Register</button>
                                 </div>
                             </form>
                         </div>
@@ -59,4 +139,4 @@
     </div>
     <div class="alert alert-success mt-4" *ngIf="accountService.currentUser$ | async">Welcome {{model.username}}</div>
     <button class="btn btn-danger" (click)="LogOut()" *ngIf="accountService.currentUser$ | async">LogOut</button>
-</div>
+</div> --> -->

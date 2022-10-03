@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { observable } from 'rxjs';
 import { AccountService } from '../Services/account.service';
 
@@ -8,6 +8,7 @@ import { AccountService } from '../Services/account.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  @Output() registerMode = new EventEmitter();
   model:any = {}
  
   constructor(public accountService:AccountService) { }
@@ -30,5 +31,8 @@ export class LoginComponent implements OnInit {
    LogOut(){
     this.accountService.LogOut();
    
+   }
+   Register(){
+    this.registerMode.emit(true);
    }
 }

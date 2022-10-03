@@ -1,0 +1,2 @@
+<app-login *ngIf="!registerMode" (registerMode)="RegisterMode($event)"></app-login>
+<app-register *ngIf="registerMode" (cancelRegister)="RegisterMode($event)"></app-register>

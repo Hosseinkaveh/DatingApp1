@@ -23,11 +23,24 @@ export class AccountService {
       if(user){
         localStorage.setItem('user',JSON.stringify(user));
         this.setCurrentUser(user);
-
+        
       }
 
     })
    );
+  }
+  Register(model:any){
+    return this.http.post(this.baseUrl+'account/register',model).pipe(
+      map((response:User)=>{
+        const user = response;
+        if(user){
+          localStorage.setItem('user',JSON.stringify(user));
+          this.setCurrentUser(user);
+
+        }
+
+      })
+    );
   }
   setCurrentUser(user:User){
     this.currentUserSource.next(user)
