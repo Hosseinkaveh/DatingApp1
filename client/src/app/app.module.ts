@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,10 @@ import { RegisterComponent } from './register/register.component';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+   ToastrModule.forRoot({
+    positionClass:'toast-bottom-right'
+   })
   ],
   providers: [],
   bootstrap: [AppComponent]
