@@ -1,3 +1,5 @@
 <!-- <app-login *ngIf="!registerMode" (registerMode)="RegisterMode($event)"></app-login>
 <app-register *ngIf="registerMode" (cancelRegister)="RegisterMode($event)"></app-register> -->
-<h1>HomeComponent</h1>
+<ng-container *ngIf="(accountService.currentUser$ | async) as user">
+    <h1>welcome {{user.username}}</h1>
+</ng-container>
