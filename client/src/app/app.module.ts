@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { ToastrModule } from 'ngx-toastr';
+import { SharedModule } from './_modules/shared.module';
 
 @NgModule({
   declarations: [
@@ -24,9 +25,7 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-   ToastrModule.forRoot({
-    positionClass:'toast-bottom-right'
-   })
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
