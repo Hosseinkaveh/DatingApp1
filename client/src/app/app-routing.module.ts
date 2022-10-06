@@ -6,18 +6,18 @@ import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './_guards/auth.guard';
 
 const routes: Routes = [
-  {
-    path:'',
-    runGuardsAndResolvers:'always',
-    canActivate:[AuthGuard],
-    children:[
-      {path:'home',component:HomeComponent,},
-    ]
-  },
-
   {path:'',component:LoginComponent},
+   {
+     path:'',
+    runGuardsAndResolvers:'always',
+     canActivate:[AuthGuard],
+     children:[
+    {path:'home',component:HomeComponent},
+    ]
+   },
+ 
   {path:'register',component:RegisterComponent},
-  {path:'**',component:LoginComponent},
+  {path:'**',component:LoginComponent,pathMatch:'full'},
 ];
 
 @NgModule({

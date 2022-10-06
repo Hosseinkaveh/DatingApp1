@@ -17,8 +17,6 @@ export class AuthGuard implements CanActivate {
       map(user =>{
         if(user) return true;
         this.toastr.error('You shall not pass!');
-          this.router.navigateByUrl('/')
-          console.log('change url')
       })
     )
    
