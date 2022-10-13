@@ -1,5 +1,6 @@
 using Api.Data;
 using Api.Entities;
+using Api.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -9,24 +10,25 @@ namespace Api.Controllers
 
     public class UsersController : BaseApiController
     {
-         private readonly DataContext _context;
+        
+         private readonly IUserRepository _userRepository;
 
-        public UsersController(DataContext context)
+        public UsersController(IUserRepository userRepository)
         {
-            _context = context;
+            _userRepository = userRepository;
         }
      
         [HttpGet]
         public async Task<ActionResult<IEnumerable<AppUser>>> Get()
         {
-            return await _context.Users.ToListAsync();
+            return Ok(await _userRepository.GetUsersAsync());
         }
 
         [Authorize]
-        [HttpGet("{id}")]
-        public async Task<ActionResult<AppUser>> GetUsers(int id)
+        [HttpGet("{userName}")]
+        public async Task<ActionResult<AppUser>> GetUsers(string userName)
         {
-            return await _context.Users.FindAsync(id);
+            return await _userRepository.GetUserByUsername(userName);
         }
     }
 }
