@@ -3,3 +3,8 @@
 <ng-container *ngIf="(accountService.currentUser$ | async) as user">
     <h1>welcome {{user.username}}</h1>
 </ng-container>
+<div class="row">
+    <div class="col-2">
+        <p *ngFor="let user of members">{{user.photoUrl}}</p>
+    </div>
+</div>
