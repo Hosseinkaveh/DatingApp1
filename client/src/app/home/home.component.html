@@ -1,10 +1,18 @@
-<!-- <app-login *ngIf="!registerMode" (registerMode)="RegisterMode($event)"></app-login>
-<app-register *ngIf="registerMode" (cancelRegister)="RegisterMode($event)"></app-register> -->
-<ng-container *ngIf="(accountService.currentUser$ | async) as user">
-    <h1>welcome {{user.username}}</h1>
-</ng-container>
-<div class="row">
-    <div class="col-2">
-        <p *ngFor="let user of members">{{user.photoUrl}}</p>
+<div class="col-md-10 bootstrap snippets bootdeys">
+  <div class="widget-container scrollable list rollodex">
+    <div class="heading">
+      <i class="fa fa-comment"></i>Rollodex<i class="fa fa-plus pull-right"></i><i
+        class="fa fa-search pull-right"></i><i class="fa fa-refresh pull-right"></i>
     </div>
+    <div class="widget-content">
+      <div class="roll-title">
+        <h1>Contact</h1>
+      </div>
+      <ul>
+        <ng-container *ngFor="let member of members">
+          <app-member-card [member]="member"></app-member-card>
+        </ng-container>
+      </ul>
+    </div>
+  </div>
 </div>

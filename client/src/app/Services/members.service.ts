@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { member } from '../_models/member';
 
 const httpOptions =  {
   headers: new HttpHeaders({
@@ -18,11 +19,11 @@ export class MembersService {
   constructor(private http:HttpClient) { }
 
   getMembers(){
-   return this.http.get(this.baseUrl+ 'users',httpOptions)
+   return this.http.get<member[]>(this.baseUrl+ 'users',httpOptions)
   }
   getMember(username:string)
   {
-    return this.http.get(this.baseUrl+'users',httpOptions)
+    return this.http.get<member>(this.baseUrl+'users',httpOptions)
   }
 
 }

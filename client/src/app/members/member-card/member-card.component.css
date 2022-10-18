@@ -1,0 +1,12 @@
+.memberList{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+  }
+  
+  
+  .member-list {
+    padding: 10px 15px 12px 2px;
+    border-bottom: 1px solid #e2e2e2;
+    margin: 0;
+}
